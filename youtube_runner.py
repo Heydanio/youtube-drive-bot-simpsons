@@ -13,7 +13,7 @@ from googleapiclient.http import MediaIoBaseDownload
 PARIS_TZ = ZoneInfo("Europe/Paris")
 SLOTS_HOURS   = [8, 11, 14, 17, 20]
 MINUTES_GRID  = list(range(0, 60, 5))
-GRACE_MINUTES = 12
+GRACE_MINUTES = 20
 
 USED_FILE     = Path("state/used.json")
 SCHEDULE_FILE = Path("state/schedule.json")
@@ -26,8 +26,11 @@ YT_CATEGORY    = os.environ.get("YT_CATEGORY", "Entertainment")
 YT_PRIVACY     = os.environ.get("YT_PRIVACY", "public")
 
 DEFAULT_TAGS = [
-    "shorts","fun","fr","meme","clip","viral","tiktok","trend","lol",
-    "humour","gaming","retrofuturiste","neon","edits"
+    "shorts","humour","drôle","fun","fr","tendance","viral","meme","montage","clip",
+    "gaming","stream","twitch","moments","compilation","edit","capcut","reaction","lol","wtf",
+    "trend","bestof","france","entertainment","amusant","buzz","highlight","clutch","fails","win",
+    "asmr","music","beat","challenge","ironie","parodie","sketch","storytime","live","popculture",
+    "anime","manga","film","serie","geek","setup","tips","astuces","howto","inspiration"
 ]
 
 # ----- TITRES + DESCRIPTIONS -----
