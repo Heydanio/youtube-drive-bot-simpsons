@@ -36,26 +36,32 @@ jobs:
             "git+https://github.com/tokland/youtube-upload.git"
 
       - name: Write OAuth client_secrets.json
-        run: echo "${{ secrets.CLIENT_SECRETS_JSON_B64 }}" | base64 -d > client_secrets.json
+        run: echo "${{ secrets.YT_CLIENT_SECRETS_B64_2 }}" | base64 -d > client_secrets.json
 
       - name: Write OAuth credentials (refresh token)
-        run: echo "${{ secrets.YOUTUBE_CREDENTIALS_JSON_B64 }}" | base64 -d > youtube_credentials.json
+        run: echo "${{ secrets.YT_CREDENTIALS_B64_2 }}" | base64 -d > youtube_credentials.json
 
       - name: Force post if manual dispatch
         if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force == 'true' }}
-        run: echo "FORCE_POST=1" >> $GITHUB_ENV
+        run: |
+          echo "FORCE_POST=1" >> $GITHUB_ENV
+          echo "YT_PRIVACY=private" >> $GITHUB_ENV  # test en privé quand lancé à la main
 
       - name: Run YouTube runner
         env:
-          GDRIVE_SA_JSON_B64: ${{ secrets.GDRIVE_SA_JSON_B64 }}
-          GDRIVE_FOLDER_IDS_YT: ${{ secrets.GDRIVE_FOLDER_IDS_YT }}   # ex: 1AbCDe... (dossier shorts2)
+          # Google Drive (service account + dossier(s) Drive pour ce compte YouTube)
+          GDRIVE_SA_JSON_B64:   ${{ secrets.GDRIVE_SA_JSON_B64 }}
+          GDRIVE_FOLDER_IDS_YT: ${{ secrets.GDRIVE_FOLDER_IDS_YT_2 }}   # ex: 1AbCDe... (dossier shorts2)
+          # Fichiers OAuth locaux utilisés par youtube_runner.py
           CLIENT_SECRETS_FILE: client_secrets.json
           CREDENTIALS_FILE:    youtube_credentials.json
-          YT_CATEGORY:         Entertainment   # change si tu veux
+          # Options YouTube (modifiable)
+          YT_CATEGORY:         Entertainment   # Entertainment, Gaming, People & Blogs, etc.
           YT_PRIVACY:          public          # public | unlisted | private
         run: python youtube_runner.py
 
       - name: Cleanup
+        if: always()
         run: rm -f client_secrets.json youtube_credentials.json
 
       - name: Commit state if changed
