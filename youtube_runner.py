@@ -29,13 +29,38 @@ DEFAULT_TAGS = [
     "shorts","fun","fr","meme","clip","viral","tiktok","trend","lol",
     "humour","gaming","retrofuturiste","neon","edits"
 ]
+
+# ----- TITRES + DESCRIPTIONS -----
 DEFAULT_DESCRIPTIONS = [
-    "Shorts auto depuis Drive 🚀",
-    "Petit clip du jour 🎯 #Shorts",
-    "Compilation rapide ⚡",
-    "Moments forts du jour 🔥",
-    "Best-of express 🎬",
+    "😂 Les meilleurs moments des Simpsons ! N’oublie pas de liker 👍 et de t’abonner 🔔 #shorts",
+    "😱 Springfield n’a pas fini de nous surprendre… Like + Abonne-toi pour + de clips Simpsons 💛",
+    "🍩 Homer, Bart & toute la famille en 60 secondes ! Abonne-toi pour + de fun 🎬",
+    "🔥 Moment culte des Simpsons ! Si t’aimes, lâche un like et partage 😉",
+    "🎯 Un classique des Simpsons, version short ! Soutiens avec un 👍 et active la cloche 🔔",
+    "💥 Springfield en folie ! Like + Abonne-toi pour + de vidéos exclusives Simpsons 🚀",
+    "👨‍👩‍👧‍👦 La famille la plus drôle de la TV ! Aide-nous avec un like et rejoins la team 💛",
+    "😂 Si tu ris, t’es obligé de liker 😏 et de t’abonner pour + de moments Simpsons 🎉",
+    "📺 Springfield en 1 minute chrono ! Soutiens avec un like et abonne-toi 👊",
+    "✨ Un moment culte des Simpsons à ne pas rater ! Like & Abonne-toi maintenant 💫",
 ]
+
+def format_title(file_name: str) -> str:
+    """
+    Nettoie le nom du fichier pour un titre plus propre.
+    Ex: "2025-07-04 - LE PROFESSEUR FRINK CRÉE UNE FEMME ROBOT IA ! 😱💔"
+        -> "Simpsons Short - Le Professeur Frink crée une femme robot IA !"
+    """
+    stem = Path(file_name).stem
+    # Retire les dates, ID ou crochets [xxx]
+    cleaned = stem
+    # Supprimer les parties style [HhVM9-9scog]
+    if "[" in cleaned and "]" in cleaned:
+        cleaned = cleaned.split("[")[0].strip()
+    # Supprimer les dates en début "2025-07-04 - ..."
+    if " - " in cleaned and cleaned[:10].count("-") == 2:
+        cleaned = cleaned.split(" - ", 1)[1]
+    # Reformer un titre
+    return f"Simpsons Short - {cleaned}"[:95]
 
 # ----- STATE -----
 def _load_json(path: Path, default):
@@ -176,7 +201,7 @@ def main():
     local = tmpdir / chosen["name"]
     print("⬇️ Téléchargement…"); download_file(svc, chosen["id"], local)
 
-    title = Path(chosen["name"]).stem[:95]
+    title = format_title(chosen["name"])
     desc  = random.choice(DEFAULT_DESCRIPTIONS)
     tags  = DEFAULT_TAGS
 
