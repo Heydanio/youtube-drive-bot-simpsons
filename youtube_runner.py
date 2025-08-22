@@ -38,7 +38,7 @@ DEFAULT_DESCRIPTIONS = [
     "😂 Les meilleurs moments des Simpsons ! N’oublie pas de liker 👍 et de t’abonner 🔔 #shorts",
     "😱 Springfield n’a pas fini de nous surprendre… Like #shorts #simpsons",
     "🍩 Homer, Bart & toute la famille en 60 secondes ! Abonne-toi #shorts #simpsons",
-    "🔥 Moment culte des Simpsons ! Si t’aimes, lâche un like #shorts #simpsons,
+    "🔥 Moment culte des Simpsons ! Si t’aimes, lâche un like #shorts #simpsons",
     "🎯 Un classique des Simpsons, version short ! Soutiens avec un 👍 #shorts #simpsons",
     "💥 Springfield en folie ! Like + Abonne-toi ! #shorts #simpsons",
     "👨‍👩‍👧‍👦 La famille la plus drôle de la TV ! #shorts #simpsons",
