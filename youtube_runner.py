@@ -36,15 +36,15 @@ DEFAULT_TAGS = [
 # ----- TITRES + DESCRIPTIONS -----
 DEFAULT_DESCRIPTIONS = [
     "😂 Les meilleurs moments des Simpsons ! N’oublie pas de liker 👍 et de t’abonner 🔔 #shorts",
-    "😱 Springfield n’a pas fini de nous surprendre… Like + Abonne-toi pour + de clips Simpsons 💛",
-    "🍩 Homer, Bart & toute la famille en 60 secondes ! Abonne-toi pour + de fun 🎬",
-    "🔥 Moment culte des Simpsons ! Si t’aimes, lâche un like et partage 😉",
-    "🎯 Un classique des Simpsons, version short ! Soutiens avec un 👍 et active la cloche 🔔",
-    "💥 Springfield en folie ! Like + Abonne-toi pour + de vidéos exclusives Simpsons 🚀",
-    "👨‍👩‍👧‍👦 La famille la plus drôle de la TV ! Aide-nous avec un like et rejoins la team 💛",
-    "😂 Si tu ris, t’es obligé de liker 😏 et de t’abonner pour + de moments Simpsons 🎉",
-    "📺 Springfield en 1 minute chrono ! Soutiens avec un like et abonne-toi 👊",
-    "✨ Un moment culte des Simpsons à ne pas rater ! Like & Abonne-toi maintenant 💫",
+    "😱 Springfield n’a pas fini de nous surprendre… Like #shorts #simpsons",
+    "🍩 Homer, Bart & toute la famille en 60 secondes ! Abonne-toi #shorts #simpsons",
+    "🔥 Moment culte des Simpsons ! Si t’aimes, lâche un like #shorts #simpsons,
+    "🎯 Un classique des Simpsons, version short ! Soutiens avec un 👍 #shorts #simpsons",
+    "💥 Springfield en folie ! Like + Abonne-toi ! #shorts #simpsons",
+    "👨‍👩‍👧‍👦 La famille la plus drôle de la TV ! #shorts #simpsons",
+    "😂 Si tu ris, t’es obligé de liker 😏 et de t’abonner #shorts #simpsons",
+    "📺 Springfield en 1 minute chrono ! Soutiens avec un like #shorts #simpsons",
+    "✨ Un moment culte des Simpsons à ne pas rater ! Like #shorts #simpsons",
 ]
 
 def format_title(file_name: str) -> str:
